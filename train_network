@@ -1,0 +1,28 @@
+from image_loader.image_loader import ImageLoader
+from neural_network import NeuralNetwork
+
+#
+# Train network
+#
+training_images = ImageLoader.load_images('./image_loader/training_data/*.png')
+validation_images = ImageLoader.load_validation_images('./image_loader/validation_data/*.png')
+
+neural_network = NeuralNetwork([10000, 100, 3])
+
+neural_network.optimise_network(training_images, validation_images, runs=20, learning_rate=1.0)
+
+
+#
+# Test network
+#
+testing_image1 = ImageLoader.load_image('./image_loader/testing_data/image1.png')
+
+result = neural_network.evaluate_network(testing_image1)
+
+#string concatenation doesn't work with ndarrays
+print("Square: ")
+print(result[0])
+print("Triangle: ")
+print(result[1])
+print("Circle: ")
+print(result[2])
