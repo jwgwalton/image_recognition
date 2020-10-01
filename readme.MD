@@ -1,5 +1,5 @@
 # Recommended way to run the project
-- Import project into IDE. 
+- Import project into your IDE. 
 - Save png files of test data into
 folder image_loader/testing_data.
 - Edit code in train_network.py, change filename in path
